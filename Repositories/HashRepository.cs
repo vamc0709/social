@@ -73,7 +73,7 @@ public class HashtagRepository : BaseRepository, IHashtagRepository
 
     public async Task<List<Hashtag>> GetList()
     {
-         var query = $@"SELECT * FROM ""{TableNames.likes}""";
+         var query = $@"SELECT * FROM ""{TableNames.hash}""";
 
         List<Hashtag> res;
         using (var con = NewConnection)

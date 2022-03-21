@@ -31,7 +31,7 @@ public class HashtagController : ControllerBase
     
     [HttpGet]
 
-    public async Task<ActionResult<List<LikesDTO>>> GetAllUser()
+    public async Task<ActionResult<List<HashtagDTO>>> GetAllUser()
     {
         var usersList = await _hashtag.GetList();
         var dtoList = usersList.Select(x => x.asDto);
@@ -46,7 +46,7 @@ public class HashtagController : ControllerBase
         var hashtag = await _hashtag.GetById(hash_id);
 
         if (hashtag is null)
-            return NotFound("No hashtag found with given id");
+            return NotFound("No hashtag found with given hash_id");
 
         var dto = hashtag.asDto;
         dto.Post = await _post.GetAllForHashtag(hashtag.HashId);
